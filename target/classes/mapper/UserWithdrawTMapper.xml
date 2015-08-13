@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="gugutech.elseapp.dao.UserWithdrawTMapper" >
+  <resultMap id="BaseResultMap" type="gugutech.elseapp.model.UserWithdrawT" >
+    <id column="WITHDRAW_ID" property="withdrawId" jdbcType="INTEGER" />
+    <result column="USER_ID" property="userId" jdbcType="INTEGER" />
+    <result column="WITHDRAW_CHANNEL" property="withdrawChannel" jdbcType="VARCHAR" />
+    <result column="WITHDRAW_AMOUNT" property="withdrawAmount" jdbcType="DECIMAL" />
+    <result column="WITHDRAW_STATUS" property="withdrawStatus" jdbcType="VARCHAR" />
+    <result column="WITHDRAW_DATETIME" property="withdrawDatetime" jdbcType="TIMESTAMP" />
+    <result column="SEG1" property="seg1" jdbcType="VARCHAR" />
+    <result column="SEG2" property="seg2" jdbcType="VARCHAR" />
+    <result column="SEG3" property="seg3" jdbcType="VARCHAR" />
+    <result column="SEG4" property="seg4" jdbcType="VARCHAR" />
+    <result column="SEG5" property="seg5" jdbcType="VARCHAR" />
+    <result column="SEG6" property="seg6" jdbcType="VARCHAR" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from user_withdraw_t
+    where WITHDRAW_ID = #{withdrawId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="gugutech.elseapp.model.UserWithdrawT" >
+    insert into user_withdraw_t (WITHDRAW_ID, USER_ID, WITHDRAW_CHANNEL, 
+      WITHDRAW_AMOUNT, WITHDRAW_STATUS, WITHDRAW_DATETIME, 
+      SEG1, SEG2, SEG3, SEG4, 
+      SEG5, SEG6)
+    values (#{withdrawId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{withdrawChannel,jdbcType=VARCHAR}, 
+      #{withdrawAmount,jdbcType=DECIMAL}, #{withdrawStatus,jdbcType=VARCHAR}, #{withdrawDatetime,jdbcType=TIMESTAMP}, 
+      #{seg1,jdbcType=VARCHAR}, #{seg2,jdbcType=VARCHAR}, #{seg3,jdbcType=VARCHAR}, #{seg4,jdbcType=VARCHAR}, 
+      #{seg5,jdbcType=VARCHAR}, #{seg6,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="gugutech.elseapp.model.UserWithdrawT" >
+    update user_withdraw_t
+    set USER_ID = #{userId,jdbcType=INTEGER},
+      WITHDRAW_CHANNEL = #{withdrawChannel,jdbcType=VARCHAR},
+      WITHDRAW_AMOUNT = #{withdrawAmount,jdbcType=DECIMAL},
+      WITHDRAW_STATUS = #{withdrawStatus,jdbcType=VARCHAR},
+      WITHDRAW_DATETIME = #{withdrawDatetime,jdbcType=TIMESTAMP},
+      SEG1 = #{seg1,jdbcType=VARCHAR},
+      SEG2 = #{seg2,jdbcType=VARCHAR},
+      SEG3 = #{seg3,jdbcType=VARCHAR},
+      SEG4 = #{seg4,jdbcType=VARCHAR},
+      SEG5 = #{seg5,jdbcType=VARCHAR},
+      SEG6 = #{seg6,jdbcType=VARCHAR}
+    where WITHDRAW_ID = #{withdrawId,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select WITHDRAW_ID, USER_ID, WITHDRAW_CHANNEL, WITHDRAW_AMOUNT, WITHDRAW_STATUS, 
+    WITHDRAW_DATETIME, SEG1, SEG2, SEG3, SEG4, SEG5, SEG6
+    from user_withdraw_t
+    where WITHDRAW_ID = #{withdrawId,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select WITHDRAW_ID, USER_ID, WITHDRAW_CHANNEL, WITHDRAW_AMOUNT, WITHDRAW_STATUS, 
+    WITHDRAW_DATETIME, SEG1, SEG2, SEG3, SEG4, SEG5, SEG6
+    from user_withdraw_t
+  </select>
+</mapper>

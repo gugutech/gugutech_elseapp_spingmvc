@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="gugutech.elseapp.dao.UserLoginTMapper" >
+  <resultMap id="BaseResultMap" type="gugutech.elseapp.model.UserLoginT" >
+    <id column="LOGIN_ID" property="loginId" jdbcType="INTEGER" />
+    <result column="USER_ID" property="userId" jdbcType="INTEGER" />
+    <result column="USER_LOGIN_PWD" property="userLoginPwd" jdbcType="VARCHAR" />
+    <result column="CONNECTION_ID" property="connectionId" jdbcType="VARCHAR" />
+    <result column="CONNECTION_PW" property="connectionPw" jdbcType="VARCHAR" />
+    <result column="UUID" property="uuid" jdbcType="VARCHAR" />
+    <result column="ACTIVE_FLAG" property="activeFlag" jdbcType="VARCHAR" />
+    <result column="SEG1" property="seg1" jdbcType="VARCHAR" />
+    <result column="SEG2" property="seg2" jdbcType="VARCHAR" />
+    <result column="SEG3" property="seg3" jdbcType="VARCHAR" />
+    <result column="SEG4" property="seg4" jdbcType="VARCHAR" />
+    <result column="SEG5" property="seg5" jdbcType="VARCHAR" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from user_login_t
+    where LOGIN_ID = #{loginId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="gugutech.elseapp.model.UserLoginT" >
+    insert into user_login_t (LOGIN_ID, USER_ID, USER_LOGIN_PWD, 
+      CONNECTION_ID, CONNECTION_PW, UUID, 
+      ACTIVE_FLAG, SEG1, SEG2, 
+      SEG3, SEG4, SEG5)
+    values (#{loginId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{userLoginPwd,jdbcType=VARCHAR}, 
+      #{connectionId,jdbcType=VARCHAR}, #{connectionPw,jdbcType=VARCHAR}, #{uuid,jdbcType=VARCHAR}, 
+      #{activeFlag,jdbcType=VARCHAR}, #{seg1,jdbcType=VARCHAR}, #{seg2,jdbcType=VARCHAR}, 
+      #{seg3,jdbcType=VARCHAR}, #{seg4,jdbcType=VARCHAR}, #{seg5,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="gugutech.elseapp.model.UserLoginT" >
+    update user_login_t
+    set USER_ID = #{userId,jdbcType=INTEGER},
+      USER_LOGIN_PWD = #{userLoginPwd,jdbcType=VARCHAR},
+      CONNECTION_ID = #{connectionId,jdbcType=VARCHAR},
+      CONNECTION_PW = #{connectionPw,jdbcType=VARCHAR},
+      UUID = #{uuid,jdbcType=VARCHAR},
+      ACTIVE_FLAG = #{activeFlag,jdbcType=VARCHAR},
+      SEG1 = #{seg1,jdbcType=VARCHAR},
+      SEG2 = #{seg2,jdbcType=VARCHAR},
+      SEG3 = #{seg3,jdbcType=VARCHAR},
+      SEG4 = #{seg4,jdbcType=VARCHAR},
+      SEG5 = #{seg5,jdbcType=VARCHAR}
+    where LOGIN_ID = #{loginId,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select LOGIN_ID, USER_ID, USER_LOGIN_PWD, CONNECTION_ID, CONNECTION_PW, UUID, ACTIVE_FLAG, 
+    SEG1, SEG2, SEG3, SEG4, SEG5
+    from user_login_t
+    where LOGIN_ID = #{loginId,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select LOGIN_ID, USER_ID, USER_LOGIN_PWD, CONNECTION_ID, CONNECTION_PW, UUID, ACTIVE_FLAG, 
+    SEG1, SEG2, SEG3, SEG4, SEG5
+    from user_login_t
+  </select>
+</mapper>

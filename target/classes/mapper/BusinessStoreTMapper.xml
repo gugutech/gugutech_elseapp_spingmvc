@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="gugutech.elseapp.dao.BusinessStoreTMapper" >
+  <resultMap id="BaseResultMap" type="gugutech.elseapp.model.BusinessStoreT" >
+    <id column="STORE_ID" property="storeId" jdbcType="INTEGER" />
+    <result column="USER_ID" property="userId" jdbcType="INTEGER" />
+    <result column="TAG_ID" property="tagId" jdbcType="INTEGER" />
+    <result column="PHOTO_URL" property="photoUrl" jdbcType="VARCHAR" />
+    <result column="VIDEO_RUL" property="videoRul" jdbcType="VARCHAR" />
+    <result column="VOICE_RUL" property="voiceRul" jdbcType="VARCHAR" />
+    <result column="TAG_DESCRIPTION" property="tagDescription" jdbcType="VARCHAR" />
+    <result column="PRICE" property="price" jdbcType="DECIMAL" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="SEG1" property="seg1" jdbcType="VARCHAR" />
+    <result column="SEG2" property="seg2" jdbcType="VARCHAR" />
+    <result column="SEG3" property="seg3" jdbcType="VARCHAR" />
+    <result column="SEG4" property="seg4" jdbcType="VARCHAR" />
+    <result column="SEG5" property="seg5" jdbcType="VARCHAR" />
+    <result column="SEG6" property="seg6" jdbcType="VARCHAR" />
+    <result column="SEG7" property="seg7" jdbcType="VARCHAR" />
+    <result column="SEG8" property="seg8" jdbcType="VARCHAR" />
+    <result column="SEG9" property="seg9" jdbcType="VARCHAR" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from business_store_t
+    where STORE_ID = #{storeId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="gugutech.elseapp.model.BusinessStoreT" >
+    insert into business_store_t (STORE_ID, USER_ID, TAG_ID, 
+      PHOTO_URL, VIDEO_RUL, VOICE_RUL, 
+      TAG_DESCRIPTION, PRICE, CREATE_TIME, 
+      SEG1, SEG2, SEG3, SEG4, 
+      SEG5, SEG6, SEG7, SEG8, 
+      SEG9)
+    values (#{storeId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{tagId,jdbcType=INTEGER}, 
+      #{photoUrl,jdbcType=VARCHAR}, #{videoRul,jdbcType=VARCHAR}, #{voiceRul,jdbcType=VARCHAR}, 
+      #{tagDescription,jdbcType=VARCHAR}, #{price,jdbcType=DECIMAL}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{seg1,jdbcType=VARCHAR}, #{seg2,jdbcType=VARCHAR}, #{seg3,jdbcType=VARCHAR}, #{seg4,jdbcType=VARCHAR}, 
+      #{seg5,jdbcType=VARCHAR}, #{seg6,jdbcType=VARCHAR}, #{seg7,jdbcType=VARCHAR}, #{seg8,jdbcType=VARCHAR}, 
+      #{seg9,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="gugutech.elseapp.model.BusinessStoreT" >
+    update business_store_t
+    set USER_ID = #{userId,jdbcType=INTEGER},
+      TAG_ID = #{tagId,jdbcType=INTEGER},
+      PHOTO_URL = #{photoUrl,jdbcType=VARCHAR},
+      VIDEO_RUL = #{videoRul,jdbcType=VARCHAR},
+      VOICE_RUL = #{voiceRul,jdbcType=VARCHAR},
+      TAG_DESCRIPTION = #{tagDescription,jdbcType=VARCHAR},
+      PRICE = #{price,jdbcType=DECIMAL},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      SEG1 = #{seg1,jdbcType=VARCHAR},
+      SEG2 = #{seg2,jdbcType=VARCHAR},
+      SEG3 = #{seg3,jdbcType=VARCHAR},
+      SEG4 = #{seg4,jdbcType=VARCHAR},
+      SEG5 = #{seg5,jdbcType=VARCHAR},
+      SEG6 = #{seg6,jdbcType=VARCHAR},
+      SEG7 = #{seg7,jdbcType=VARCHAR},
+      SEG8 = #{seg8,jdbcType=VARCHAR},
+      SEG9 = #{seg9,jdbcType=VARCHAR}
+    where STORE_ID = #{storeId,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select STORE_ID, USER_ID, TAG_ID, PHOTO_URL, VIDEO_RUL, VOICE_RUL, TAG_DESCRIPTION, 
+    PRICE, CREATE_TIME, SEG1, SEG2, SEG3, SEG4, SEG5, SEG6, SEG7, SEG8, SEG9
+    from business_store_t
+    where STORE_ID = #{storeId,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select STORE_ID, USER_ID, TAG_ID, PHOTO_URL, VIDEO_RUL, VOICE_RUL, TAG_DESCRIPTION, 
+    PRICE, CREATE_TIME, SEG1, SEG2, SEG3, SEG4, SEG5, SEG6, SEG7, SEG8, SEG9
+    from business_store_t
+  </select>
+</mapper>

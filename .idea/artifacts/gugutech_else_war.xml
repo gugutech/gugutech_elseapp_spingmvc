@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="gugutech-else:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="else.war">
+      <element id="artifact" artifact-name="gugutech-else:war exploded" />
+    </root>
+  </artifact>
+</component>
