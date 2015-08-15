@@ -34,7 +34,6 @@
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.4.4" />
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.4.4" />
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.4.4" />
-          <element id="library" level="project" name="Maven: javax.jms:jms:1.1" />
           <element id="library" level="project" name="Maven: com.aliyun.openservices:ons-client:1.1.8" />
           <element id="library" level="project" name="Maven: com.alibaba.rocketmq:rocketmq-client:3.2.5" />
           <element id="library" level="project" name="Maven: com.alibaba.rocketmq:rocketmq-common:3.2.5" />
