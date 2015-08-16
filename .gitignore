@@ -7,3 +7,7 @@ gugutech-else.iml
 *.iml
 .idea/.name
 .idea/.name
+
+.idea/compiler.xml
+
+.idea/workspace.xml
