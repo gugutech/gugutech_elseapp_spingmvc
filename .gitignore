@@ -1,7 +1,7 @@
 /target/
 /src/main/resources/conf/jdbc.properties
 gugutech-else.iml
-/.idea
+/.idea/*
 /.project
 /.settings
 *.iml
